@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+#banner{
+    width: 900px;
+    height: 350px;
+    margin-left: 310px;
+}
+
+.text h2{
+    font-family: 'Preahvihear', sans-serif;
+}
+
+.line{
+    background-color: #000;
+    width: auto;
+    height: 2px;
+}
+
+.title h1{
+    font-family: 'Preahvihear', sans-serif;
+}
+
+.aside-hover{
+    width: 400px;
+    height: 900px;
+}
+
+.aside-hover h3{
+    font-family: 'Preahvihear', sans-serif;
+}
+
+.avatar img{
+    width: 100px;
+    border-radius: 100%;
+}
+
+.bi-whatsapp{
+    color: #fff;
+}
+
+.bi-github{
+    color: #000;
+}
+
+.card-languages{
+    width: 900px;
+    height: 400px;
+}
+
+.img{
+    width: 300px;
+}
+
+.languagem img{
+    width: 50px;
+}
+
+.languagens-imgs h3{
+    font-family: 'Preahvihear', sans-serif;
+}
+
+#contact{
+    background-image: url('../img/fundo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;   
+}
+
+.card-contact{
+    width: 800px;
+    height: 550px;
+}
+
+.title-contact{
+    font-family: 'Preahvihear', sans-serif;
+}
+
+.logo_white img{
+    width: 150px;
+}

@@ -25,6 +25,15 @@
     font-family: 'Preahvihear', sans-serif;
 }
 
+.post .card .card-img-top{
+    height: 150px;
+    height: 270px;
+}
+
+.card .img-fluid{
+    height: 350px;
+}
+
 .aside-hover{
     width: 400px;
     height: 900px;

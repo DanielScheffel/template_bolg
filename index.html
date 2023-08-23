@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="blog">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,11 +17,6 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="./style/style.css" />
     <title>Blog</title>
   </head>
@@ -93,77 +90,19 @@
             </h1>
           </div>
 
-          <section id="posts" class="post d-flex">
-            <div class="card rounded m-5" style="width: 20rem">
+          <section id="posts" class="post container d-flex flex-wrap" ng-controller="Rest">
+            <div class="card rounded m-5 col-lg-2" style="width: 20rem" ng-repeat="publicacao in publicacoes">
               <img
-                src="./img/programming_web.png"
+                ng-src="https://api-rest-post-diegocandido.herokuapp.com{{ publicacao.thumbImage }}"
                 class="rounded card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title fw-bold">Várias Linguagens</h5>
-                <p class="card-text fw-medium">
-                  As linguagens de programação são instrumentos essenciais no
-                  mundo da computação, permitindo que os desenvolvedores criem
-                  software, aplicativos e sistemas.
-                </p>
-                <a href="#" class="btn btn-primary fw-bold">Ler Mais</a>
+                <strong class="text-center">{{ publicacao.thumbImageAltText }}</strong>
+                <h5 class="card-title fw-bold">{{ publicacao.title }}</h5>
+                <a href="#/postagem/{{$index}}" class="btn btn-primary fw-bold" ng-click="url($index)">Ler Mais</a>
               </div>
-            </div>
-
-            <div class="card rounded m-5" style="width: 20rem">
-              <img
-                src="./img/free_web.png"
-                class="rounded card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Gerando Empregos</h5>
-                <p class="card-text fw-medium">
-                  As contratações no mundo da programação estão em alta devido à
-                  demanda por tecnologia. Trabalho remoto é comum, e portfólio e
-                  aprendizado contínuo são importantes.
-                </p>
-                <a href="#" class="btn btn-primary fw-bold">Ler Mais</a>
-              </div>
-            </div>
-          </section>
-
-          <section class="post d-flex">
-            <div class="card rounded m-5" style="width: 20rem">
-              <img
-                src="./img/designer.png"
-                class="rounded card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Mundo do Designer</h5>
-                <p class="card-text fw-medium">
-                  Os designers de UI e UX estão ganhando destaque no mercado de
-                  tecnologia devido à crescente ênfase na experiência do
-                  usuário.
-                </p>
-                <a href="#" class="btn btn-primary fw-bold">Ler Mais</a>
-              </div>
-            </div>
-
-            <div class="card rounded m-5" style="width: 20rem">
-              <img
-                src="./img/mundo.png"
-                class="rounded card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Mundo Tecnológico</h5>
-                <p class="card-text fw-medium">
-                  O mundo tecnológico está em constante evolução, moldando a
-                  maneira como vivemos e interagimos. Avanços rápidos em
-                  inteligência artificial, internet das coisas e automação estão
-                  transformando indústrias, desde saúde até transporte.
-                </p>
-                <a href="#" class="btn btn-primary fw-bold">Ler Mais</a>
-              </div>
-            </div>
+            </div> 
           </section>
         </div>
 
@@ -474,8 +413,6 @@
         </svg>
       </a>
     </button>
-
-    <script src="app.js"></script>
     <script src="./javascript/index.js"></script>
   </body>
 </html>

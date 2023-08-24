@@ -1,31 +1,33 @@
 angular.module('blog', []);
-angular.module('blog')
-    .controller('Rest', function($scope, $http){
-        $http.get('https://api-rest-post-diegocandido.herokuapp.com/postagens/').
-        success(function (data) {
-            $scope.publicacoes = data;
-        });
-    });
-
+angular
+  .module('blog')
+  .controller('Rest', function ($scope, $http, $window) {
+    $http
+      .get('https://api-rest-post-diegocandido.herokuapp.com/postagens/')
+      .then(function (data) {
+        $scope.publicacoes = data.data;
+      })
+    $scope.details = function (id) {
+      let baseUrl = `/post.html?index=${id}`;
+      $window.location.href = baseUrl;
+    };
+  });
 
 angular.module('post', []);
-angular.module('post')
-    .controller('Post', function($scope, $http, $location){
-        var absUrl = $location.absUrl();
-        var url = absUrl.split("#/");
-        console.log(url);
-        console.log($location);
-        $http({
-            method: 'GET',
-            url : `https://api-rest-post-diegocandido.herokuapp.com/postagem/`+[]
-        }).then(function(data){
-            console.log(data)
+angular
+  .module('post', [])
+  .controller('Post', function ($scope, $http) {
+    
+    let Indexparams = new URLSearchParams(window.location.search);
+    let id = Indexparams.get("index");
+    
+    if (id !== undefined) {
+      $http
+        .get(
+          `https://api-rest-post-diegocandido.herokuapp.com/postagem/${id}`
+        )
+        .then(function (data) {
             $scope.publicacoes = data.data;
-        }), function(error){
-            console.log('Erro ao exibir postagem', error)
-        }
-        $scope.lerMais = function(postId){
-            $location.path('/postagem/' + postId)
-        }
-    });
-
+        })
+    }
+  });

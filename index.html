@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -100,7 +100,7 @@
               <div class="card-body">
                 <strong class="text-center">{{ publicacao.thumbImageAltText }}</strong>
                 <h5 class="card-title fw-bold">{{ publicacao.title }}</h5>
-                <a href="#/postagem/{{$index}}" class="btn btn-primary fw-bold" ng-click="url($index)">Ler Mais</a>
+                <a ng-click="details($index)" class="btn btn-primary fw-bold">Ler Mais</a>
               </div>
             </div> 
           </section>
